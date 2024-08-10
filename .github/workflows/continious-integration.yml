@@ -50,5 +50,7 @@ jobs:
         password: ${{secrets.DOCKER_REGISTRY_PAT}}
 
     - name: Push docker images
-      run: docker push ${{secrets.CONTAINER_REGISTRY_URL}}/api-gateway:$GITHUB_REF_NAME
+      run: |
+       CURRENT_FOLDER_NAME=$(basename $(pwd))
+       docker push ${{secrets.CONTAINER_REGISTRY_URL}}/$CURRENT_FOLDER_NAME:$GITHUB_REF_NAME
  
