@@ -36,4 +36,7 @@ jobs:
 
     - name: OWASP Scan
       run: mvn org.owasp:dependency-check-maven:check
+
+    - name: Build code and create docker images
+      run: mvn clean install docker:build
  
